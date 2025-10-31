@@ -1,0 +1,28 @@
+import React from "react";
+import { MdLogin } from "react-icons/md";
+import { MdOutlinePersonAddAlt } from "react-icons/md";
+
+const Welcome = () => {
+  return (
+    <div className="h-screen flex w-screen items-center justify-center">
+      <div className="h-[350px] w-[500px] px-20 py-10 text-center items-center flex flex-col  shadow-2xl bg-white">
+        <p className="text-blue-600 text-5xl font-bold">
+          Welcome To Career Portal
+        </p>
+        <p className=" mt-5 opacity-35">
+          Discover Job Opportunities And Connect With Employeers That Value Your
+          Skills
+        </p>
+        <div className="flex flex-row gap-2 mt-4">
+          <button className=" flex text-center cursor-pointer hover:bg-blue-600  items-center p-2 border-blue-500 bg-blue-700 text-white rounded-md gap-2 border px-4">
+            <MdLogin className="font-bold" />
+            Login
+          </button>
+          <button className="border flex gap-2 text-blue-800 cursor-pointer hover:bg-blue-700 hover:text-white border-blue-500 rounded-md p-2 text-center items-center px-4"><MdOutlinePersonAddAlt />Register</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Welcome;
