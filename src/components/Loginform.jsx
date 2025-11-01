@@ -8,7 +8,8 @@ const Loginform = () => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    const savedData = JSON.parse(localStorage.getItem("candidateData"));
+    const candidateData = JSON.parse(localStorage.getItem("candidateData"));
+    const companyData = JSON.parse(localStorage.getItem("companyData"));
 
     // 🔹 Step 1: Check if fields are empty
     if (!emailOrUsername.trim() && !password.trim()) {
@@ -22,28 +23,35 @@ const Loginform = () => {
       return;
     }
 
-    // 🔹 Step 2: Check if user is registered
-    if (!savedData) {
+    // 🔹 Step 2: Check if any user is registered
+    if (!candidateData && !companyData) {
       alert("No registered user found. Please register first!");
       return;
     }
 
-    // 🔹 Step 3: Validate username/email
-    const isUsernameOrEmailMatch =
-      savedData.username === emailOrUsername || savedData.email === emailOrUsername;
+    // 🔹 Step 3: Check for Candidate Login
+    const isCandidate =
+      candidateData &&
+      (candidateData.username === emailOrUsername ||
+        candidateData.email === emailOrUsername) &&
+      candidateData.password === password;
 
-    if (!isUsernameOrEmailMatch) {
-      alert("Username or Email not found. Please check your credentials.");
+    // 🔹 Step 4: Check for Company Login
+    const isCompany =
+      companyData &&
+      (companyData.username === emailOrUsername ||
+        companyData.email === emailOrUsername) &&
+      companyData.password === password;
+
+    if (!isCandidate && !isCompany) {
+      alert("Invalid credentials. Please check your username/email and password.");
       return;
     }
 
-    // 🔹 Step 4: Validate password
-    if (savedData.password !== password) {
-      alert("Incorrect password. Please try again.");
-      return;
-    }
+    // 🔹 Step 5: Save login type (to identify later in profile page)
+    const userType = isCandidate ? "candidate" : "company";
+    localStorage.setItem("loggedInUserType", userType);
 
-    // 🔹 Step 5: Success
     alert("Login Successful!");
     navigate("/profile");
   };
