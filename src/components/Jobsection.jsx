@@ -4,7 +4,9 @@ import { IoLocationOutline } from "react-icons/io5";
 import { FaMoneyCheck } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
 import { SlCalender } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 const Jobsection = () => {
+  const navigate=useNavigate()
   return (
     <div className="h-screen items-center flex-col justify-center flex w-screen bg-gray-100">
       <h2 className="text-4xl text-blue-500 font-bold">Available Job Openings</h2>
@@ -19,7 +21,7 @@ const Jobsection = () => {
             <p className="flex font-bold gap-1 items-center" ><FaBuilding />Posted By:</p>
             <p className="flex font-bold gap-1 items-center"><SlCalender />Posted On:</p>
           </div>
-          <button className="border absolute text-blue-700 ml-[250px] p-2 hover:bg-blue-800 hover:text-white cursor-pointer rounded-md flex justify-end gap-2 items-center border-blue-500"><CiLocationArrow1/>Apply Now</button>
+          <button onClick={()=>navigate("/submit")} className="border absolute text-blue-700 ml-[250px] p-2 hover:bg-blue-800 hover:text-white cursor-pointer rounded-md flex justify-end gap-2 items-center border-blue-500"><CiLocationArrow1/>Apply Now</button>
           
         </div>
         

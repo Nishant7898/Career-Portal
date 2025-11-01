@@ -7,6 +7,7 @@ import Chooseyour from './components/Chooseyour';
 import RegisterAsCandidate from './components/RegisterAsCandidate';
 import Loginform from './components/Loginform';
 import Jobsection from './components/Jobsection';
+import Jobsubmit from './components/Jobsubmit';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/candidate' element={<RegisterAsCandidate/>}/>
         <Route path='/login'element={<Loginform/>}/>
         <Route path='/jobs'element={<Jobsection/>}/>
+        <Route path='/submit' element={<Jobsubmit/>}/>
       </Routes>
       </BrowserRouter>
      
