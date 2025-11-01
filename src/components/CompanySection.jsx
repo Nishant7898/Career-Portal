@@ -9,8 +9,8 @@ import { FaSearch } from "react-icons/fa";
 
 const CompanySection = () => {
   return (
-    <div className="h-screen w-screen items-center justify-center flex bg-gray-200">
-      <div className="h-full mt-[150px] flex pt-4 text-center rounded-md flex-col items-center w-[80vw] shadow-2xl p-2 bg-white">
+    <div className="min-h-screen w-screen items-center justify-center   flex bg-gray-200">
+      <div className="h-full pb-20 mt-[50px] flex pt-4 text-center rounded-xl flex-col items-center w-[80vw] shadow-2xl p-2 bg-white">
         <h2 className="text-4xl flex gap-2 text-center items-center font-bold text-blue-500">
           <FaChartBar /> Company Profiles Report
         </h2>
