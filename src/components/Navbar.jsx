@@ -1,6 +1,9 @@
 import React from "react";
 import { FaBriefcase } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+
   return (
     <div className=" ">
       <div className="bg-blue-800 flex px-20 justify-between h-[50px] text-white items-center">
@@ -17,7 +20,6 @@ const Navbar = () => {
           <button>Login</button>
         </div>
       </div>
-    
     </div>
   );
 };
