@@ -12,6 +12,7 @@ import RegisterAsCompany from './components/RegisterAsCompany';
 import Footer from './components/Footer';
 import CompanySection from './components/CompanySection';
 import Profile from './components/Profilesection';
+import EditProfile from './components/Editprofile';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='/ascompany' element={<RegisterAsCompany/>}/>
         <Route path='/companies' element={<CompanySection/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/editprofile'element={<EditProfile/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

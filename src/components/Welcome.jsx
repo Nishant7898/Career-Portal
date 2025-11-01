@@ -16,7 +16,7 @@ const Welcome = () => {
           Skills
         </p>
         <div className="flex flex-row gap-2 mt-4">
-          <button className=" flex text-center cursor-pointer hover:bg-blue-600  items-center p-2 border-blue-500 bg-blue-700 text-white rounded-md gap-2 border px-4">
+          <button onClick={()=>navigate("/login")} className=" flex text-center cursor-pointer hover:bg-blue-600  items-center p-2 border-blue-500 bg-blue-700 text-white rounded-md gap-2 border px-4">
             <MdLogin className="font-bold" />
             Login
           </button>

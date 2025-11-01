@@ -36,12 +36,16 @@ const RegisterAsCandidate = () => {
     }
   };
 
-  // ✅ Handle Photo Upload
+  // ✅ Handle Photo Upload (convert to base64 for saving)
   const handlePhotoUpload = (e) => {
     const file = e.target.files[0];
     if (file && (file.type === "image/jpeg" || file.type === "image/jpg")) {
-      setPhoto(file);
-      setFormData({ ...formData, photo: file.name });
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPhoto(file);
+        setFormData({ ...formData, photo: reader.result }); // Save base64
+      };
+      reader.readAsDataURL(file);
     } else {
       alert("Please upload only .jpg or .jpeg file for Photo!");
       e.target.value = "";
@@ -64,26 +68,7 @@ const RegisterAsCandidate = () => {
     // Save data in localStorage
     localStorage.setItem("candidateData", JSON.stringify(formData));
     alert("Registration Successful! Data saved in LocalStorage ✅");
-
-    // Clear form
-    setFormData({
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      name: "",
-      mobile: "",
-      status: "",
-      gender: "",
-      dob: "",
-      education: "",
-      workExp: "",
-      skills: "",
-      resume: "",
-      photo: "",
-    });
-    setResume(null);
-    setPhoto(null);
+    navigate("/profile"); // Navigate to Profile Page after saving
   };
 
   return (
@@ -96,7 +81,7 @@ const RegisterAsCandidate = () => {
           <HiUserAdd className="text-3xl" /> Register As Candidate
         </h1>
 
-        <div className="mt-[80px] space-y-6">
+        <div className="mt-[70px] space-y-6">
           {[
             { label: "Username*", name: "username", type: "text" },
             { label: "Email*", name: "email", type: "email" },
@@ -254,17 +239,29 @@ const RegisterAsCandidate = () => {
               <input
                 type="text"
                 name="photo"
-                value={formData.photo}
+                value={photo ? photo.name : ""}
                 readOnly
                 className="w-[300px] border-l-0 rounded-r-md border border-gray-400 px-3 focus:outline-none focus:ring-1 focus:ring-blue-500 shadow-sm"
               />
             </div>
+
+            {/* ✅ Live Image Preview */}
+            {photo && (
+              <div className="flex flex-col text-start space-y-3 mt-3">
+                <p>Profile Preview:</p>
+                <img
+                  src={URL.createObjectURL(photo)}
+                  alt="Profile Preview"
+                  className="w-[100px] h-[100px] object-cover border border-gray-400 rounded-md shadow-sm"
+                />
+              </div>
+            )}
           </div>
 
           {/* Register Button */}
           <button
             onClick={handleRegister}
-            className="bg-blue-700 flex items-center gap-2 justify-center h-[40px] w-[400px] text-white font-semibold rounded-md hover:bg-blue-800 transition"
+            className="bg-blue-700 flex items-center gap-2 justify-center h-[50px] w-[400px] text-white font-semibold rounded-md hover:bg-blue-800 transition"
           >
             <HiUserAdd className="text-2xl" />
             Register
