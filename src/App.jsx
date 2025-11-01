@@ -11,6 +11,7 @@ import Jobsubmit from './components/Jobsubmit';
 import RegisterAsCompany from './components/RegisterAsCompany';
 import Footer from './components/Footer';
 import CompanySection from './components/CompanySection';
+import Profile from './components/Profilesection';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/submit' element={<Jobsubmit/>}/>
         <Route path='/ascompany' element={<RegisterAsCompany/>}/>
         <Route path='/companies' element={<CompanySection/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>
