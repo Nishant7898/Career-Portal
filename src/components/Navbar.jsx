@@ -14,7 +14,7 @@ const navigate=useNavigate()
         <div className="flex gap-3">
           <button>Home</button>
           <button className="focus:active:text-yellow-500  cursor-pointer hover:text-yellow-400" onClick={()=>navigate("/jobs")}>Jobs</button>
-          <button>Companies</button>
+          <button onClick={()=>navigate("/companies")}>Companies</button>
           <button>Profile</button>
           <button>Report</button>
           <button className="cursor-pointer hover:text-yellow-500 focus:active:text-yellow-500" onClick={()=>navigate("/login")}>Login</button>

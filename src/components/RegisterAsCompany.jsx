@@ -107,7 +107,7 @@ const RegisterAsCompany = () => {
               Register
             </button>
           </div>
-         <p className="mt-4 pb-10">Already Have An Acount?<span onClick={()=>navigate("/login")} className="text-blue-600 cursor-pointer font-semibold ml-2 text-center" href="">Login Here</span> </p> 
+         <p className="mt-6 pb-10">Already Have An Acount?<span onClick={()=>navigate("/login")} className="text-blue-600 cursor-pointer font-semibold ml-2 text-center" href="">Login Here</span> </p> 
         </div>
       </div>
     );
