@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const RegisterAsCandidate = () => {
   const navigate=useNavigate()
   return (
-    <div className="h-[200vh] scroll-smooth  w-screen bg-gray-200 flex items-center justify-center ">
-      <div className="h-[200vh] flex  text-center items-center flex-col w-[500px] bg-white border border-white">
+    <div id="candidate" className="h-screen   scroll-smooth  flex items-center justify-center ">
+      <div className="h-full flex  text-center items-center flex-col w-[500px] bg-white border border-white">
         <h1 className="text-2xl mt-6 flex gap-2 text-center justify-center items-center">
           <HiUserAdd className="text-blue-500 text-3xl" /> Register As Candidate
         </h1>

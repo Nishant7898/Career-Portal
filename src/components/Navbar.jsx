@@ -3,7 +3,7 @@ import { FaBriefcase } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-
+const navigate=useNavigate()
   return (
     <div className=" ">
       <div className="bg-blue-800 flex px-20 justify-between h-[50px] text-white items-center">
@@ -13,7 +13,7 @@ const Navbar = () => {
         </p>
         <div className="flex gap-3">
           <button>Home</button>
-          <button>Jobs</button>
+          <button onClick={()=>navigate("/jobs")}>Jobs</button>
           <button>Companies</button>
           <button>Profile</button>
           <button>Report</button>

@@ -11,8 +11,9 @@ import Jobsection from './components/Jobsection';
 const App = () => {
   return (
     <div className='bg-gray-100'>
-      <Navbar/>
+     
       <BrowserRouter>
+       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/choose'element={<Chooseyour/>}/>
