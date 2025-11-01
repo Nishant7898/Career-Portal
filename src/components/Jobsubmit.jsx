@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { RxCross2 } from "react-icons/rx"; // cross icon
 
 const Jobsubmit = () => {
-  const [fileName, setFileName] = useState(""); // to show selected file name
-  const [submitted, setSubmitted] = useState(false); // to toggle success message
+  const [fileName, setFileName] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -10,7 +11,7 @@ const Jobsubmit = () => {
       setFileName(file.name);
     } else {
       alert("Please upload a valid PDF file!");
-      e.target.value = ""; // reset if not PDF
+      e.target.value = "";
     }
   };
 
@@ -29,12 +30,15 @@ const Jobsubmit = () => {
 
   return (
     <div className="h-screen w-screen items-center bg-gray-100 flex justify-center">
-      <div className="h-[200px] w-[500px] rounded-md bg-white border-white shadow-2xl">
-        <p className="bg-blue-600 text-white text-xl p-2 font-semibold px-10 text-center items-center flex">
-          Apply to ""
-        </p>
+      <div className="h-auto w-[500px] rounded-md bg-white border-white shadow-2xl p-4 relative">
+        {/* Title only before submission */}
+        {!submitted && (
+          <p className="bg-blue-600 text-white text-xl p-2 font-semibold px-10 text-center items-center flex">
+            Apply to "Frontend Developer"
+          </p>
+        )}
 
-        {/* Resume Upload Section */}
+        {/* Before Submit */}
         {!submitted ? (
           <>
             <div className="mt-4 px-5 flex items-center gap-2 text-center">
@@ -59,22 +63,35 @@ const Jobsubmit = () => {
 
             <button
               onClick={handleSubmit}
-              className="bg-green-700 hover:bg-green-600 cursor-pointer mx-4 mt-6 text-white p-2 rounded-md"
+              className="bg-green-700 cursor-pointer mx-4 mt-6 text-white p-2 rounded-md"
             >
               Submit Application
             </button>
           </>
         ) : (
           <>
-            <p className="text-green-700 font-semibold mt-8 text-center">
-              Application submitted With Resume!
-            </p>
-            <button
-              onClick={handleCancel}
-              className="bg-red-600 cursor-pointer mx-auto mt-4 block text-white p-2 rounded-md"
-            >
-          
-            </button>
+            {/* Success Message Row */}
+            <div className="flex justify-between items-center mt-4 px-4">
+              <p className="text-green-700 font-semibold text-lg">
+                🎉 Application submitted successfully!
+              </p>
+              <button onClick={handleCancel}>
+                <RxCross2 className="text-red-600 text-2xl hover:text-red-800 cursor-pointer" />
+              </button>
+            </div>
+
+            {/* Recommended Jobs Section */}
+            <div className="mt-6 px-5">
+              <h3 className="text-blue-700 font-semibold text-lg mb-2">
+                Recommended Jobs:
+              </h3>
+              <ul className="list-disc pl-6 text-gray-700 space-y-1 text-sm">
+                <li>React Developer - Google</li>
+                <li>Frontend Engineer - Amazon</li>
+                <li>Web Developer - Microsoft</li>
+                <li>UI Designer - Adobe</li>
+              </ul>
+            </div>
           </>
         )}
       </div>

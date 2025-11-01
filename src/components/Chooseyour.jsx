@@ -13,7 +13,7 @@ const Chooseyour = () => {
           <button onClick={()=>navigate("/candidate")} className="w-[300px] gap-2 p-1 cursor-pointer hover:bg-blue-700 items-center justify-center text-center flex rounded-md   text-white bg-blue-500">
            <PiStudentFill className="text-xl" /> Register As Candidate
           </button>
-          <button className=" text-center gap-2 w-[300px] cursor-pointer hover:bg-rose-800 items-center justify-center  text-white flex rounded-md p-1  bg-rose-600">
+          <button onClick={()=>navigate("/ascompany")} className=" text-center gap-2 w-[300px] cursor-pointer hover:bg-rose-800 items-center justify-center  text-white flex rounded-md p-1  bg-rose-600">
          <FaBuilding />   Register As Company
           </button>
         </div>

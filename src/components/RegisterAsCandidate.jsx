@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const RegisterAsCandidate = () => {
   const navigate=useNavigate()
   return (
-    <div id="candidate" className="h-screen   scroll-smooth  flex items-center justify-center ">
+    <div id="candidate" className="min-h-screen mb-10   scroll-smooth  flex items-center justify-center ">
       <div className="h-full flex  text-center items-center flex-col w-[500px] bg-white border border-white">
         <h1 className="text-2xl mt-6 flex gap-2 text-center justify-center items-center">
           <HiUserAdd className="text-blue-500 text-3xl" /> Register As Candidate
@@ -76,7 +76,7 @@ const RegisterAsCandidate = () => {
           <div className="flex flex-col text-start space-y-3">
             <p>Dob*</p>
             <input
-              type="dob"
+              type="date"
               placeholder="dd-mm-yy"
               className="w-[400px] border-opacity-10 border border-gray-400 rounded-md px-3 py-2 shadow-xl  focus:outline-none focus:ring-1 focus:ring-blue-500"
             />

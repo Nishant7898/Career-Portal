@@ -8,6 +8,8 @@ import RegisterAsCandidate from './components/RegisterAsCandidate';
 import Loginform from './components/Loginform';
 import Jobsection from './components/Jobsection';
 import Jobsubmit from './components/Jobsubmit';
+import RegisterAsCompany from './components/RegisterAsCompany';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -22,7 +24,9 @@ const App = () => {
         <Route path='/login'element={<Loginform/>}/>
         <Route path='/jobs'element={<Jobsection/>}/>
         <Route path='/submit' element={<Jobsubmit/>}/>
+        <Route path='/ascompany' element={<RegisterAsCompany/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
      
 
